@@ -58,8 +58,20 @@ som en string i strings.xml. Se koden nedan från activity_second.
         android:id="@+id/prefText"
         tools:ignore="MissingConstraints" />
 ```
-
+Jag skapade ett intent i MainActivity för att kunna öpnna SecondActivity. Jag skapade även en knapp
+för att kunna öppna SecondActivity. Se koden nedan.
 ```
+        goToSecondActivityButton = findViewById(R.id.openSecondActivityButton);
+        goToSecondActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+```
+Jag behövde ändra i build.gradle för att detta skulle fungera. Se koden nedan.
+```
+implementation 'androidx.activity:activity:1.1.0'
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
