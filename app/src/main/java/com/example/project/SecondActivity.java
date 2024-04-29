@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -8,6 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
+
+    private SharedPreferences.Editor myPreferenceEditor;
+    private SharedPreferences myPreferenceRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -71,6 +71,10 @@ SecondActivity. Se koden nedan.
         android:id="@+id/openSecondActivityButton"
         tools:ignore="MissingConstraints" />
 ```
+
+I SecondActivity lade jag deklarerade jag två objekt, SharedPreferences.Editor samt SharedPreferences.
+I activity_second.xml och activity_second.xml ändrade jag constraints. 
+
 Bilder läggs i samma mapp som markdown-filen.
 
 ![](android.png)

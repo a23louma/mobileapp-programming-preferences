@@ -28,12 +28,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/prefText"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/openSecondActivityButton" />
 
     <Button
+        android:text="Continue here!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/openSecondActivityButton"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
