@@ -75,6 +75,28 @@ SecondActivity. Se koden nedan.
 I SecondActivity lade jag deklarerade jag två objekt, SharedPreferences.Editor samt SharedPreferences.
 I activity_second.xml och activity_second.xml ändrade jag constraints. 
 
+I MainActivity lade jag till metoden onResume och flyttade över kod till metoden för att läsa data.
+Se koden nedan.
+```
+    @Override
+    protected void onResume() {
+        super.onResume();
+        prefTextRef=new TextView(this);
+        prefTextRef=(TextView)findViewById(R.id.prefText);
+        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
+    }
+```
+I SecondActivity lade jag till en Button för att spara det som skrivits i EditText. Se koden nedan.
+```
+        saveButton = findViewById(R.id.prefButton);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+```
 Bilder läggs i samma mapp som markdown-filen.
 
 ![](android.png)
