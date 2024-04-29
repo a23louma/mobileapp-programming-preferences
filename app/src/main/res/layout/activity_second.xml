@@ -20,11 +20,5 @@
         android:id="@+id/prefButton"
         android:onClick="savePref"
         tools:ignore="MissingConstraints" />
-    <TextView
-        android:layout_below="@+id/prefButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/prefText"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
