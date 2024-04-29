@@ -23,11 +23,16 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        myPreferenceRef = getSharedPreferences( "MyAppPreferenceString" ,MODE_PRIVATE);
+        myPreferenceEditor = myPreferenceRef.edit();
+
+        //prefTextRef=(TextView)findViewById(R.id.prefText);
+        //prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
+
         saveButton = findViewById(R.id.prefButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //savePref();
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                 startActivity(intent);
 
@@ -37,7 +42,7 @@ public class SecondActivity extends AppCompatActivity {
 
     public void savePref(View v){
         // Get the text
-        newPrefText=new EditText(this);
+        //newPrefText=new EditText(this);
         newPrefText=(EditText)findViewById(R.id.settingseditview);
 
         // Store the new preference
@@ -47,7 +52,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
         // Display the new preference
-        prefTextRef=new TextView(this);
+        //prefTextRef=new TextView(this);
         prefTextRef=(TextView)findViewById(R.id.prefText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 
