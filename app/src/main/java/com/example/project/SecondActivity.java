@@ -33,6 +33,8 @@ public class SecondActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Added savepref
+                savePref(view);
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                 startActivity(intent);
 
@@ -53,6 +55,7 @@ public class SecondActivity extends AppCompatActivity {
 
         // Display the new preference
         //prefTextRef=new TextView(this);
+        //Works also if I remove this, Add if null show "no preference found"
         prefTextRef=(TextView)findViewById(R.id.prefText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 
