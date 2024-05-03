@@ -15,7 +15,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences myPreferenceRef;
-    private SharedPreferences.Editor myPreferenceEditor;
     private Button goToSecondActivityButton;
     private TextView prefTextRef;
 
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         myPreferenceRef = getSharedPreferences( "MyAppPreferenceString" ,MODE_PRIVATE);
-        myPreferenceEditor = myPreferenceRef.edit();
 
         goToSecondActivityButton = findViewById(R.id.openSecondActivityButton);
         goToSecondActivityButton.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //prefTextRef=new TextView(this);
+        // Display the new preference
         prefTextRef=(TextView)findViewById(R.id.prefText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
     }

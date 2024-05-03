@@ -14,7 +14,6 @@ public class SecondActivity extends AppCompatActivity {
 
     private SharedPreferences.Editor myPreferenceEditor;
     private SharedPreferences myPreferenceRef;
-    private TextView prefTextRef;
     private EditText newPrefText;
     private Button saveButton;
 
@@ -26,14 +25,10 @@ public class SecondActivity extends AppCompatActivity {
         myPreferenceRef = getSharedPreferences( "MyAppPreferenceString" ,MODE_PRIVATE);
         myPreferenceEditor = myPreferenceRef.edit();
 
-        //prefTextRef=(TextView)findViewById(R.id.prefText);
-        //prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
-
         saveButton = findViewById(R.id.prefButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Added savepref
                 savePref(view);
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -44,20 +39,12 @@ public class SecondActivity extends AppCompatActivity {
 
     public void savePref(View v){
         // Get the text
-        //newPrefText=new EditText(this);
         newPrefText=(EditText)findViewById(R.id.settingseditview);
 
         // Store the new preference
         myPreferenceEditor.putString("MyAppPreferenceString", newPrefText.getText().toString());
         myPreferenceEditor.apply();
         myPreferenceEditor.commit();
-
-
-        // Display the new preference
-        //prefTextRef=new TextView(this);
-        //Works also if I remove this, Add if null show "no preference found"
-        prefTextRef=(TextView)findViewById(R.id.prefText);
-        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 
         // Clear the EditText
         newPrefText.setText("");
